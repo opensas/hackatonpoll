@@ -7,8 +7,7 @@ import models._
 
 class EntityTest extends Specification {
 
-    "Topic create" should {
-    	"be retrieved by id" in {
+    	"should save de topic" in {
 	    	running(FakeApplication()){
 
 	    		val topic = new Topic("00001","Scala Intro", "A little piece of knowledge")
@@ -16,5 +15,4 @@ class EntityTest extends Specification {
 	    		 Topic.save(topic)
 	    	}
 	    }
-    }
 }
