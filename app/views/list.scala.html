@@ -1,0 +1,19 @@
+@(message: String, topics: Iterable[models.Topic])
+
+@import helper._
+
+@main("Welcome to Play 2.0") {
+    
+  @form(routes.Application.save()) {
+	  <label>name</label><input name="name"><br />
+	  <label>description</label><input name="description"><br />
+	  <label>votes</label><input name="votes"><br />
+
+	  <div class="actions">
+	  	<input type="submit" value="Create this topic" class="btn primary"> or 
+        <a href="@routes.Application.list()" class="btn">Cancel</a> 
+	  </div>
+
+  }
+
+}

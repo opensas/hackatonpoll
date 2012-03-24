@@ -6,7 +6,7 @@ import play.api.test.Helpers._
 import models._
 
 class EntityTest extends Specification {
-
+/*
     "Topic create" should {
     	"be retrieved by id" in {
 	    	running(FakeApplication()){
@@ -17,4 +17,5 @@ class EntityTest extends Specification {
 	    	}
 	    }
     }
+*/
 }
