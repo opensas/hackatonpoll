@@ -1,7 +1,5 @@
 package models
 
-import java.lang.{Iterable => JavaIterable}
-
 import scala.collection.JavaConverters._
 import scala.reflect.BeanProperty
 import org.codehaus.jackson.annotate.JsonProperty
