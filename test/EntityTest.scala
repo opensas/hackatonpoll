@@ -10,7 +10,7 @@ class EntityTest extends Specification {
     	"should save de topic" in {
 	    	running(FakeApplication()){
 
-	    		val topic = new Topic("00001","Scala Intro", "A little piece of knowledge")
+	    		val topic = new Topic("Scala Intro", "A little piece of knowledge")
 	    		 topic.name must equalTo("Scala Intro")
 	    		 Topic.save(topic)
 	    	}
