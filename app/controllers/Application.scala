@@ -9,7 +9,7 @@ object Application extends Controller {
   
   def index = Action {
   
-  	val topic = new Topic("new topic name", "new topic descripcion") 
+  	val topic = new Topic("id", "new topic name", "new topic descripcion") 
   
     Ok(views.html.index(
     	message = "Your new application is ready.",
