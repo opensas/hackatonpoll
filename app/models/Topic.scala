@@ -4,9 +4,7 @@ import java.lang.{Iterable => JavaIterable}
 
 import scala.collection.JavaConverters._
 import scala.reflect.BeanProperty
-
 import org.codehaus.jackson.annotate.JsonProperty
-
 import javax.persistence.Id
 import net.vz.mongodb.jackson.ObjectId
 import play.api.Play.current
@@ -33,9 +31,9 @@ object Topic {
   def findById(id: String): Topic = db.findOneById(id)
   
   def findByName(name: String): Iterable[Topic] = {
-   val data: JavaIterable[Topic] = db.find().is("name", name)
-   return data.asScala
-   //return db.find().is("name", name).asInstanceOf[JavaIterable[Topic]].asScala
+   //val data: JavaIterable[Topic] = db.find().is("name", name)
+   //return data.asScala
+   return db.find().is("name", name).asInstanceOf[JavaIterable[Topic]].asScala
   }
   
 }
