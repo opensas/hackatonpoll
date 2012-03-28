@@ -31,7 +31,7 @@ object Topic {
   def findByName(name: String): Iterable[Topic] = {
    //val data: JavaIterable[Topic] = db.find().is("name", name)
    //return data.asScala
-   return db.find().is("name", name).asInstanceOf[JavaIterable[Topic]].asScala
+   return db.find().is("name", name).asInstanceOf[java.lang.Iterable[Topic]].asScala
   }
   
 }
