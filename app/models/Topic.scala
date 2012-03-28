@@ -1,5 +1,6 @@
 package models
 
+import java.lang.{Iterable => JavaIterable}
 import scala.collection.JavaConverters._
 import scala.reflect.BeanProperty
 import org.codehaus.jackson.annotate.JsonProperty
@@ -8,18 +9,20 @@ import net.vz.mongodb.jackson.ObjectId
 import play.api.Play.current
 import play.modules.mongodb.jackson.MongoDB
 
-class Topic(
+case class Topic(
 
     @ObjectId @Id @BeanProperty @JsonProperty("_id")
-	val id: String,
+	val id: String = "",
     
     @BeanProperty @JsonProperty("name")
 	val name: String,
 	
 	@BeanProperty @JsonProperty("description")
-	val description: String
-) {
-}
+	val description: String,
+
+	@BeanProperty @JsonProperty("votes")
+	val votes: Int = 0
+)
 
 object Topic {
   private lazy val db = MongoDB.collection("topics", classOf[Topic], classOf[String])
@@ -32,6 +35,10 @@ object Topic {
    //val data: JavaIterable[Topic] = db.find().is("name", name)
    //return data.asScala
    return db.find().is("name", name).asInstanceOf[java.lang.Iterable[Topic]].asScala
+  }
+  
+  def findAll(): Iterable[Topic] = {
+    return db.find().asInstanceOf[JavaIterable[Topic]].asScala
   }
   
 }
